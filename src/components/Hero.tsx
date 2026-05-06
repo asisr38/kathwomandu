@@ -9,10 +9,7 @@ export function Hero() {
         <span className="mandu">du</span>
       </h1>
 
-      <p className="tagline">
-        {" "}
-        by woman <span className="dot" /> for woman{" "}
-      </p>
+      <p className="tagline">Built to uplift</p>
 
       <a className="scroll-cue" href="#manifesto">
         Read the manifesto

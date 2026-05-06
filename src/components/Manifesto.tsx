@@ -5,14 +5,15 @@ export function Manifesto() {
         <p className="label">The Manifesto</p>
         <h2>
           From a city in the foothills of the world, a lineage of women{" "}
-          <em>continue to hold it up.</em>
+          <em>continue to champion their tradition.</em>
         </h2>
 
         <p>
           <span className="accent">Kathwomandu</span> is a place in the making.
           A home for the daughters of a country whose mountains have been
-          climbed in our name, and whose work — at the loom, at the hearth, at
-          the heart of every household — has too often gone unnamed.
+          climbed in our name, and whose fertile plains have been sown by our
+          sweat, and whose work — at the loom, at the hearth, at the heart of
+          every household — has too often gone unnamed.
         </p>
 
         <p>

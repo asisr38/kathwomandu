@@ -1,7 +1,7 @@
 export const siteMeta = {
-  title: "Kathwomandu — by woman. for woman.",
+  title: "Kathwomandu — Built to uplift.",
   description:
-    "Kathwomandu — a place in the making, by woman, for woman. Supporting Nepali women, in spirit and in practice.",
+    "Kathwomandu — a place in the making. Built to uplift. Supporting Nepali women, in spirit and in practice.",
   domain: "kathwomandu.com",
   url: "https://kathwomandu.com",
 };
@@ -46,8 +46,7 @@ export const footerLinks = [
 ] as const;
 
 export const visualQuote = {
-  imageSrc:
-    "https://images.fineartamerica.com/images-medium-large-5/himalayas-sunrise-nepal-emad-aljumah.jpg",
+  imageSrc: "/himalayaBG.png",
   imageAlt: "Sunrise over the Himalayan range in Nepal",
   quote: "\"The mountain is tall because so many shoulders have held it up.\"",
   source: "— A saying we are giving back its mothers",
