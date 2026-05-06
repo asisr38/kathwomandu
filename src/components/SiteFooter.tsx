@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="row">
         <div>
           <BrandMark className="mark" />
-          <p className="blurb">A home in the making — for woman, by woman, to woman.</p>
+          <p className="blurb">A home in the making — by woman, for woman.</p>
         </div>
         <nav className="links" aria-label="Footer navigation">
           {footerLinks.map((link) => (

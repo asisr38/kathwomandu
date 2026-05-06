@@ -1,8 +1,9 @@
 export const siteMeta = {
-  title: "Kathwomandu — for woman. by woman. to woman.",
+  title: "Kathwomandu — by woman. for woman.",
   description:
-    "Kathwomandu — a place in the making, for woman, by woman, to woman. Supporting Nepali women, in spirit and in practice.",
+    "Kathwomandu — a place in the making, by woman, for woman. Supporting Nepali women, in spirit and in practice.",
   domain: "kathwomandu.com",
+  url: "https://kathwomandu.com",
 };
 
 export const brand = {
