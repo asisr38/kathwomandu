@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kathwomandu — for woman. by woman. to woman.</title>
+<meta name="description" content="Kathwomandu — a place in the making, for woman, by woman, to woman. Supporting Nepali women, in spirit and in practice." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6efe2;
+    --cream-deep: #ede3cf;
+    --ivory: #fbf7ec;
+    --terracotta: #c8633e;
+    --terracotta-deep: #a64d2c;
+    --saffron: #d99a3e;
+    --ochre: #b87a2a;
+    --sindoor: #b51c2c;
+    --sindoor-deep: #8a1422;
+    --ink: #1f1612;
+    --ink-soft: #4b3a31;
+    --ink-quiet: #7c685c;
+    --rule: #d8caac;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  .narrow {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  /* ====================== TOP BAR ====================== */
+  header.top {
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  header.top .mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--ink);
+  }
+  header.top .mark em {
+    color: var(--sindoor);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  header.top .pulse {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  header.top .pulse::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sindoor);
+    box-shadow: 0 0 0 0 rgba(181, 28, 44, 0.55);
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(181, 28, 44, 0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(181, 28, 44, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(181, 28, 44, 0); }
+  }
+
+  /* ====================== HERO ====================== */
+  .hero {
+    padding: 5rem 2.5rem 7rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero .eyebrow {
+    display: inline-block;
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 2.5rem;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 11vw, 9.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+  }
+  .wordmark .kath { font-weight: 300; }
+  .wordmark .wo {
+    color: var(--sindoor);
+    font-style: italic;
+    font-weight: 500;
+    font-variation-settings: "SOFT" 100;
+  }
+  .wordmark .mandu { font-weight: 300; }
+
+  .tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    margin-bottom: 3rem;
+  }
+  .tagline .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--sindoor);
+    vertical-align: middle;
+    margin: 0 0.7rem 0.18em;
+    opacity: 0.85;
+  }
+
+  .hero .scroll-cue {
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero .scroll-cue::after {
+    content: "";
+    width: 1px;
+    height: 38px;
+    background: linear-gradient(to bottom, var(--ochre), transparent);
+  }
+
+  /* Subtle mountain motif */
+  .mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+
+  /* ====================== MANIFESTO ====================== */
+  .manifesto {
+    padding: 6rem 0 7rem;
+    background: var(--ivory);
+    position: relative;
+  }
+  .manifesto::before, .manifesto::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .manifesto::before { top: 3rem; }
+  .manifesto::after { bottom: 3rem; }
+
+  .manifesto .label {
+    text-align: center;
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 2.5rem;
+  }
+
+  .manifesto h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .manifesto h2 em {
+    font-style: italic;
+    color: var(--sindoor);
+    font-weight: 500;
+  }
+
+  .manifesto p {
+    font-family: 'Fraunces', serif;
+    font-weight: 350;
+    font-size: 1.18rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.6rem;
+    text-align: left;
+  }
+  .manifesto p:last-child { margin-bottom: 0; }
+  .manifesto p .accent {
+    color: var(--terracotta-deep);
+    font-style: italic;
+  }
+
+  .signature {
+    margin-top: 3rem;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-quiet);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ====================== PILLARS ====================== */
+  .pillars {
+    padding: 7rem 0;
+    background: var(--cream);
+  }
+  .pillars .label {
+    text-align: center;
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 1rem;
+  }
+  .pillars h3.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+  .pillar {
+    padding-top: 2rem;
+    border-top: 2px solid var(--terracotta);
+    position: relative;
+  }
+  .pillar .number {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.9rem;
+  }
+  .pillar h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.015em;
+  }
+  .pillar h4 .nepali {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--sindoor);
+    margin-top: 0.2rem;
+    letter-spacing: 0.02em;
+  }
+  .pillar p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  /* ====================== VISUAL MOMENT ====================== */
+  .visual {
+    padding: 0;
+    position: relative;
+    background: var(--ink);
+  }
+  .visual .frame {
+    position: relative;
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+  }
+  .visual .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.85) contrast(1.05);
+  }
+  .visual .frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(31, 22, 18, 0.0) 30%, rgba(31, 22, 18, 0.55) 100%),
+      linear-gradient(90deg, rgba(31, 22, 18, 0.35) 0%, rgba(31, 22, 18, 0) 50%);
+  }
+  .visual .quote {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 3rem 3.5rem;
+    color: var(--ivory);
+    max-width: 640px;
+  }
+  .visual .quote .q {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+  }
+  .visual .quote .src {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(246, 239, 226, 0.75);
+  }
+
+  /* ====================== EMAIL CAPTURE ====================== */
+  .capture {
+    padding: 8rem 2.5rem;
+    background: var(--ivory);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Dhaka-inspired pattern overlay (geometric, very subtle) */
+  .capture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, var(--sindoor) 1px, transparent 1.5px),
+      radial-gradient(circle at 80% 30%, var(--terracotta) 1px, transparent 1.5px),
+      radial-gradient(circle at 50% 70%, var(--ochre) 1px, transparent 1.5px);
+    background-size: 80px 80px, 80px 80px, 80px 80px;
+    opacity: 0.10;
+    pointer-events: none;
+  }
+
+  .capture .label {
+    position: relative;
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 1.5rem;
+  }
+  .capture h2 {
+    position: relative;
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .capture h2 em {
+    font-style: italic;
+    color: var(--sindoor);
+    font-weight: 500;
+  }
+  .capture p.lede {
+    position: relative;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+
+  form.signup {
+    position: relative;
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px -28px rgba(31, 22, 18, 0.18);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  form.signup:focus-within {
+    border-color: var(--terracotta);
+    box-shadow: 0 24px 48px -24px rgba(200, 99, 62, 0.35);
+  }
+  form.signup input[type="email"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1.15rem 1.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.97rem;
+    color: var(--ink);
+    outline: none;
+  }
+  form.signup input::placeholder { color: var(--ink-quiet); }
+  form.signup button {
+    border: none;
+    background: var(--sindoor);
+    color: var(--ivory);
+    padding: 0 1.6rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s ease, letter-spacing 0.25s ease;
+  }
+  form.signup button:hover {
+    background: var(--sindoor-deep);
+    letter-spacing: 0.22em;
+  }
+
+  .capture .privacy {
+    position: relative;
+    margin-top: 1.25rem;
+    font-size: 0.78rem;
+    color: var(--ink-quiet);
+    letter-spacing: 0.02em;
+  }
+
+  .capture .success {
+    display: none;
+    position: relative;
+    margin-top: 2rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--terracotta-deep);
+  }
+  .capture .success.show { display: block; }
+
+  /* ====================== FOOTER ====================== */
+  footer.foot {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 4rem 2.5rem 2.5rem;
+  }
+  footer.foot .row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  footer.foot .mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    letter-spacing: -0.015em;
+  }
+  footer.foot .mark em {
+    color: var(--saffron);
+    font-style: italic;
+    font-weight: 500;
+  }
+  footer.foot .blurb {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(246, 239, 226, 0.7);
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+  }
+  footer.foot .links {
+    display: flex;
+    gap: 1.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(246, 239, 226, 0.6);
+  }
+  footer.foot .links a {
+    color: rgba(246, 239, 226, 0.8);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  footer.foot .links a:hover { color: var(--saffron); }
+  footer.foot .meta {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(246, 239, 226, 0.12);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(246, 239, 226, 0.45);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 880px) {
+    header.top { padding: 1.25rem 1.5rem; }
+    header.top .pulse { display: none; }
+    .hero { padding: 3rem 1.5rem 5rem; }
+    .pillar-grid { grid-template-columns: repeat(2, 1fr); gap: 2.25rem; }
+    .container, .narrow { padding: 0 1.5rem; }
+    .visual .quote { padding: 2rem 1.75rem; max-width: 100%; }
+    .capture { padding: 5.5rem 1.5rem; }
+    .capture h2 { font-size: 2.1rem; }
+    form.signup { flex-direction: column; }
+    form.signup button { padding: 1rem; }
+    footer.foot { padding: 3rem 1.5rem 2rem; }
+    footer.foot .row { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  }
+
+  @media (max-width: 520px) {
+    .pillar-grid { grid-template-columns: 1fr; }
+    .manifesto p { font-size: 1.05rem; }
+  }
+
+  /* ====================== ANIMATIONS ====================== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-up.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="mark">Kath<em>woman</em>du</div>
+  <div class="pulse">In the making</div>
+</header>
+
+<!-- ============= HERO ============= -->
+<section class="hero">
+  <span class="eyebrow">A new home is rising</span>
+
+  <h1 class="wordmark fade-up in">
+    <span class="kath">Kath</span><span class="wo">woman</span><span class="mandu">du</span>
+  </h1>
+
+  <p class="tagline"> by woman <span class="dot"></span> for woman </p>
+
+  <a class="scroll-cue" href="#manifesto">Read the manifesto</a>
+
+  <svg class="mountains" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,100 L0,70 L120,30 L210,55 L320,15 L430,50 L540,20 L660,55 L780,25 L880,55 L990,18 L1100,48 L1200,25 L1200,100 Z" fill="#1f1612"/>
+  </svg>
+</section>
+
+<!-- ============= MANIFESTO ============= -->
+<section class="manifesto" id="manifesto">
+  <div class="narrow">
+    <p class="label">The Manifesto</p>
+    <h2>
+      We come from a city in the foothills of the world<br/>
+      and a lineage of women who have always
+      <em>held it up</em>.
+    </h2>
+
+    <p>
+      <span class="accent">Kathwomandu</span> is a place in the making. A home for the daughters of a country
+      whose mountains have been climbed in our name, and whose work — at the loom, at the
+      hearth, at the heart of every household — has too often gone unnamed.
+    </p>
+
+    <p>
+      We are not an answer. We are a doorway. A space we are building slowly, with care,
+      to gather what Nepali women already are — fierce, quiet, brilliant, tender, defiant,
+      ordinary, sacred — and to make sure the next generation finds it lit.
+    </p>
+
+    <p>
+      This is for the woman who left, and the woman who stayed. The one who weaves and
+      the one who codes. The mother, the daughter, the sister, the friend. The one who
+      has never been asked, and the one who has long stopped waiting to be.
+    </p>
+
+    <p>
+      We don't yet know the full shape of what we will build. We know only the
+      <span class="accent">why</span>. The <span class="accent">how</span> will be
+      written by many hands.
+    </p>
+
+    <p class="signature">— with you, from the beginning.</p>
+  </div>
+</section>
+
+<!-- ============= PILLARS ============= -->
+<section class="pillars">
+  <div class="container">
+    <p class="label">What we hold</p>
+    <h3 class="section-title">Four threads we are weaving from</h3>
+
+    <div class="pillar-grid">
+      <div class="pillar fade-up">
+        <div class="number">i.</div>
+        <h4>Roots <span class="nepali">jara</span></h4>
+        <p>To honor a heritage that is older than any border drawn on a map. The languages, the rituals, the recipes, the songs.</p>
+      </div>
+      <div class="pillar fade-up">
+        <div class="number">ii.</div>
+        <h4>Hands <span class="nepali">haat</span></h4>
+        <p>To celebrate the work of Nepali women — the textile, the trade, the labor that has carried families and continents.</p>
+      </div>
+      <div class="pillar fade-up">
+        <div class="number">iii.</div>
+        <h4>Voice <span class="nepali">awaaj</span></h4>
+        <p>To make a place where stories that were once whispered can be told aloud, in the languages they were lived in.</p>
+      </div>
+      <div class="pillar fade-up">
+        <div class="number">iv.</div>
+        <h4>Together <span class="nepali">sangai</span></h4>
+        <p>To build a sisterhood that crosses villages, valleys, and oceans — and a future none of us has to walk alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= VISUAL MOMENT ============= -->
+<section class="visual">
+  <div class="frame">
+    <img src="https://images.fineartamerica.com/images-medium-large-5/himalayas-sunrise-nepal-emad-aljumah.jpg" alt="Sunrise over the Himalayan range in Nepal" loading="lazy" />
+    <div class="quote">
+      <p class="q">"The mountain is tall because so many shoulders have held it up."</p>
+      <p class="src">— A saying we are giving back its mothers</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= EMAIL CAPTURE ============= -->
+<section class="capture" id="join">
+  <p class="label">Join the circle</p>
+  <h2>Be among the first to <em>hear what comes next</em>.</h2>
+  <p class="lede">
+    No noise. No pitch. Just a quiet note, when there is something true to share.
+  </p>
+
+  <form class="signup" id="signupForm" onsubmit="return handleSignup(event)" novalidate>
+    <input type="email" name="email" id="emailField" placeholder="your@email.com" required aria-label="Your email" />
+    <button type="submit">Stay close</button>
+  </form>
+
+  <p class="privacy">We will never share your email. Unsubscribe any time.</p>
+  <p class="success" id="successMsg">Thank you. We'll write to you when the time is right.</p>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="foot">
+  <div class="row">
+    <div>
+      <div class="mark">Kath<em>woman</em>du</div>
+      <p class="blurb">A home in the making — for woman, by woman, to woman.</p>
+    </div>
+    <div class="links">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#join">Join</a>
+      <a href="/cdn-cgi/l/email-protection#f59d9099999ab59e94819d829a98949b9180db969a98">Contact</a>
+    </div>
+  </div>
+  <div class="meta">
+    <span>© 2026 Kathwomandu — kathwomandu.com</span>
+    <span>Made with care · काठमाडौं</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Email signup — placeholder client-side handler
+  function handleSignup(e) {
+    e.preventDefault();
+    const field = document.getElementById('emailField');
+    const success = document.getElementById('successMsg');
+    const form = document.getElementById('signupForm');
+    const email = field.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      field.focus();
+      field.style.borderColor = '#b51c2c';
+      return false;
+    }
+    form.style.display = 'none';
+    success.classList.add('show');
+    // TODO: wire up to Mailchimp / ConvertKit / Formspree / your backend of choice
+    return false;
+  }
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
+</body>
+</html>
