@@ -385,10 +385,8 @@ header.top .pulse::before {
   position: relative;
   aspect-ratio: 21 / 9;
   overflow: hidden;
-}
-
-.visual .frame .visual-image {
-  object-fit: cover;
+  background-position: center;
+  background-size: cover;
   filter: saturate(0.85) contrast(1.05);
 }
 

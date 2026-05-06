@@ -51,7 +51,6 @@ export default function Image() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 18,
             fontFamily: "Georgia, serif",
             fontSize: 34,
             fontStyle: "italic",
@@ -59,16 +58,7 @@ export default function Image() {
             color: "#4b3a31",
           }}
         >
-          <span>by woman</span>
-          <span
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: 999,
-              background: "#b51c2c",
-            }}
-          />
-          <span>for woman</span>
+          <span>Built to uplift</span>
         </div>
       </div>
     ),
