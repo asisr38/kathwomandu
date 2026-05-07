@@ -11,18 +11,30 @@ export function Hero() {
 
       <p className="tagline">Built to uplift</p>
       <p className="tagline-sub">
-        for woman <span className="dot" /> by woman
+        <span>for woman</span>
+        <span className="dot" aria-hidden="true" />
+        <span>by woman</span>
+        <span className="dot" aria-hidden="true" />
+        <span>to woman</span>
       </p>
 
-      <div className="hero-actions">
-        <a className="scroll-cue" href="#manifesto">
+      <nav className="hero-actions" aria-label="Primary">
+        <a href="#manifesto" className="cta-primary">
           Read the manifesto
+          <svg className="arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 2 L8 14 M3 9 L8 14 L13 9"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
         </a>
-        <span className="hero-actions-divider">·</span>
-        <a className="scroll-cue alt" href="#join">
-          Or just leave your email
+        <a href="#join" className="cta-secondary">
+          or just leave your email
         </a>
-      </div>
+      </nav>
 
       <svg
         className="hero-landscape"
