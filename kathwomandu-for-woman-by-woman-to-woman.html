@@ -248,6 +248,7 @@
   .landscape-hills.back { fill: var(--landscape-hill-back); }
   .landscape-hills.front { fill: var(--landscape-hill-front); }
   .landscape-trees { fill: var(--landscape-tree); }
+  .landscape-mobile { display: none; }
 
   /* ====================== MANIFESTO ====================== */
   .manifesto {
@@ -393,10 +394,10 @@
   }
   .visual .frame {
     position: relative;
-    aspect-ratio: 21 / 9;
+    min-height: clamp(440px, 62vh, 720px);
     overflow: hidden;
     background-image: url("/himalayaBG.png");
-    background-position: center;
+    background-position: center 44%;
     background-size: cover;
   }
   .visual .frame::after {
@@ -404,32 +405,43 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(31, 22, 18, 0.0) 45%, rgba(31, 22, 18, 0.28) 100%),
-      linear-gradient(90deg, rgba(31, 22, 18, 0.18) 0%, rgba(31, 22, 18, 0) 48%);
+      linear-gradient(180deg, rgba(31, 22, 18, 0.04) 0%, rgba(31, 22, 18, 0.26) 100%),
+      linear-gradient(90deg, rgba(31, 22, 18, 0.48) 0%, rgba(31, 22, 18, 0.28) 34%, rgba(31, 22, 18, 0.04) 72%);
   }
   .visual .quote {
     position: absolute;
     left: 0;
     bottom: 0;
-    padding: 3rem 3.5rem;
+    padding: clamp(2.5rem, 6vw, 5.5rem);
     color: var(--ivory);
-    max-width: 640px;
+    max-width: 820px;
+    z-index: 1;
+    isolation: isolate;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  }
+  .visual .quote::before {
+    content: "";
+    position: absolute;
+    inset: 1.75rem 0 1.75rem 0;
+    background: linear-gradient(90deg, rgba(31, 22, 18, 0.68) 0%, rgba(31, 22, 18, 0.42) 58%, rgba(31, 22, 18, 0) 100%);
+    z-index: -1;
   }
   .visual .quote .q {
     font-family: 'Fraunces', serif;
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(1.3rem, 2.4vw, 1.85rem);
-    line-height: 1.4;
+    font-size: clamp(2rem, 4vw, 3.45rem);
+    line-height: 1.16;
     letter-spacing: -0.005em;
-    color: var(--ivory);
-    margin-bottom: 1rem;
+    color: #fffaf0;
+    margin-bottom: 1.35rem;
   }
   .visual .quote .src {
-    font-size: 0.72rem;
-    letter-spacing: 0.32em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: rgba(246, 239, 226, 0.75);
+    color: rgba(255, 250, 240, 0.92);
   }
 
   /* ====================== EMAIL CAPTURE ====================== */
@@ -592,9 +604,10 @@
     font-weight: 400;
     font-size: 1.7rem;
     letter-spacing: -0.015em;
+    color: var(--cream);
   }
   footer.foot .mark em {
-    color: var(--saffron);
+    color: #e25f6e;
     font-style: italic;
     font-weight: 500;
   }
@@ -655,7 +668,9 @@
     .hero-landscape { height: clamp(120px, 20vh, 165px); }
     .pillar-grid { grid-template-columns: repeat(2, 1fr); gap: 2.25rem; }
     .container, .narrow { padding: 0 1.5rem; }
-    .visual .quote { padding: 2rem 1.75rem; max-width: 100%; }
+    .visual .quote { padding: 2.75rem 1.75rem; max-width: min(100%, 680px); }
+    .visual .quote .q { font-size: clamp(1.8rem, 5.8vw, 2.7rem); }
+    .visual .quote .src { letter-spacing: 0.18em; }
     .capture { padding: 5.5rem 1.5rem; }
     .capture h2 { font-size: 2.1rem; }
     form.signup { flex-direction: column; }
@@ -665,34 +680,73 @@
   }
 
   @media (max-width: 520px) {
-    .hero { min-height: calc(100svh - 3.75rem); padding: 2.25rem 1rem 7.5rem; }
+    .hero {
+      min-height: calc(100svh - 3.75rem);
+      justify-content: center;
+      padding: 2.1rem 1rem 6.4rem;
+    }
     .hero .eyebrow {
       font-size: 0.66rem;
-      letter-spacing: 0.16em;
-      margin-bottom: 1.35rem;
+      letter-spacing: 0.12em;
+      line-height: 1.35;
+      margin-bottom: 1.15rem;
       padding: 0.42rem 0.85rem;
     }
     .wordmark {
-      font-size: clamp(2.85rem, 17vw, 4.7rem);
-      letter-spacing: -0.045em;
+      font-size: clamp(2.9rem, 16vw, 4.25rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.85rem;
+    }
+    .tagline { font-size: 1.05rem; }
+    .tagline-sub {
+      font-size: 0.88rem;
+      line-height: 1.45;
+      margin-top: 0.28rem;
+    }
+    .hero-actions { flex-direction: column; gap: 0.48rem; margin-top: 1.05rem; }
+    .hero-actions-divider { display: none; }
+    .hero .scroll-cue {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      line-height: 1.4;
+    }
+    .hero .scroll-cue::after { display: none; }
+    .hero-landscape { height: clamp(84px, 15vh, 112px); }
+    .landscape-desktop { display: none; }
+    .landscape-mobile { display: block; }
+    .pillar-grid { grid-template-columns: 1fr; }
+    .visual .frame {
+      min-height: clamp(440px, 62svh, 560px);
+      background-position: center;
+    }
+    .visual .frame::after {
+      background:
+        linear-gradient(180deg, rgba(31, 22, 18, 0.04) 0%, rgba(31, 22, 18, 0.32) 100%),
+        linear-gradient(90deg, rgba(31, 22, 18, 0.5) 0%, rgba(31, 22, 18, 0.26) 56%, rgba(31, 22, 18, 0.04) 100%);
+    }
+    .visual .quote { padding: 2.25rem 1.25rem; }
+    .visual .quote::before {
+      inset: 1.25rem 0;
+      background: linear-gradient(90deg, rgba(31, 22, 18, 0.72) 0%, rgba(31, 22, 18, 0.5) 62%, rgba(31, 22, 18, 0.08) 100%);
+    }
+    .visual .quote .q {
+      font-size: clamp(1.65rem, 8vw, 2.25rem);
+      line-height: 1.18;
       margin-bottom: 1rem;
     }
-    .tagline { font-size: 1.12rem; }
-    .tagline-sub { font-size: 0.92rem; margin-top: 0.35rem; }
-    .hero-actions { flex-direction: column; gap: 0.65rem; margin-top: 1.25rem; }
-    .hero-actions-divider { display: none; }
-    .hero .scroll-cue { letter-spacing: 0.18em; }
-    .hero .scroll-cue::after { display: none; }
-    .hero-landscape { height: clamp(100px, 18vh, 135px); }
-    .pillar-grid { grid-template-columns: 1fr; }
+    .visual .quote .src {
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      line-height: 1.55;
+    }
     .manifesto p { font-size: 1.05rem; }
   }
 
   @media (max-height: 680px) and (max-width: 520px) {
     .hero {
-      justify-content: flex-start;
-      padding-top: 1.5rem;
-      padding-bottom: 6.5rem;
+      justify-content: center;
+      padding-top: 1.4rem;
+      padding-bottom: 5.5rem;
     }
     .hero .eyebrow { margin-bottom: 1rem; }
     .wordmark {
@@ -701,7 +755,7 @@
     }
     .tagline { font-size: 1rem; }
     .hero-actions { margin-top: 1rem; }
-    .hero-landscape { height: 96px; }
+    .hero-landscape { height: 78px; }
   }
 
   /* ====================== ANIMATIONS ====================== */
@@ -751,12 +805,19 @@
   </div>
 
   <svg class="hero-landscape" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
-    <path class="landscape-peaks far" d="M0,132 L0,116 L42,108 L82,88 L118,106 L158,72 L204,108 L248,82 L292,102 L338,54 L382,106 L426,80 L470,100 L520,66 L566,104 L610,50 L654,108 L704,82 L748,104 L804,36 L858,100 L908,70 L958,104 L1010,58 L1056,96 L1108,72 L1160,102 L1200,84 L1200,220 L0,220 Z"/>
-    <path class="landscape-peak-caps" d="M158,72 L188,100 L164,92 L148,108 L130,92 Z M338,54 L374,94 L344,82 L326,108 L302,86 Z M610,50 L646,96 L616,82 L600,110 L574,84 Z M804,36 L852,92 L816,78 L796,108 L762,82 Z M1010,58 L1048,92 L1016,82 L998,106 L974,84 Z"/>
-    <path class="landscape-peaks near" d="M0,152 C64,126 118,126 178,146 C238,166 284,126 356,136 C442,148 492,112 570,132 C650,152 714,118 798,132 C884,146 944,116 1030,130 C1098,140 1148,132 1200,118 L1200,220 L0,220 Z"/>
-    <path class="landscape-hills back" d="M0,172 C86,144 174,146 270,164 C376,184 466,136 584,154 C704,172 792,142 912,156 C1028,170 1114,150 1200,138 L1200,220 L0,220 Z"/>
-    <path class="landscape-hills front" d="M0,196 C92,166 188,170 286,188 C406,210 510,158 638,178 C764,198 842,164 960,178 C1058,190 1122,180 1200,158 L1200,220 L0,220 Z"/>
-    <path class="landscape-trees" d="M944,176 L964,140 L984,176 Z M972,178 L994,132 L1018,178 Z M1002,180 L1026,122 L1050,180 Z M1034,180 L1056,136 L1080,180 Z M1066,182 L1090,128 L1114,182 Z M1098,184 L1120,146 L1144,184 Z M1130,186 L1154,138 L1178,186 Z M1160,188 L1184,150 L1200,188 L1200,220 L920,220 L920,190 Z"/>
+    <g class="landscape-desktop">
+      <path class="landscape-peaks far" d="M0,132 L0,116 L42,108 L82,88 L118,106 L158,72 L204,108 L248,82 L292,102 L338,54 L382,106 L426,80 L470,100 L520,66 L566,104 L610,50 L654,108 L704,82 L748,104 L804,36 L858,100 L908,70 L958,104 L1010,58 L1056,96 L1108,72 L1160,102 L1200,84 L1200,220 L0,220 Z"/>
+      <path class="landscape-peak-caps" d="M158,72 L188,100 L164,92 L148,108 L130,92 Z M338,54 L374,94 L344,82 L326,108 L302,86 Z M610,50 L646,96 L616,82 L600,110 L574,84 Z M804,36 L852,92 L816,78 L796,108 L762,82 Z M1010,58 L1048,92 L1016,82 L998,106 L974,84 Z"/>
+      <path class="landscape-peaks near" d="M0,152 C64,126 118,126 178,146 C238,166 284,126 356,136 C442,148 492,112 570,132 C650,152 714,118 798,132 C884,146 944,116 1030,130 C1098,140 1148,132 1200,118 L1200,220 L0,220 Z"/>
+      <path class="landscape-hills back" d="M0,172 C86,144 174,146 270,164 C376,184 466,136 584,154 C704,172 792,142 912,156 C1028,170 1114,150 1200,138 L1200,220 L0,220 Z"/>
+      <path class="landscape-hills front" d="M0,196 C92,166 188,170 286,188 C406,210 510,158 638,178 C764,198 842,164 960,178 C1058,190 1122,180 1200,158 L1200,220 L0,220 Z"/>
+    </g>
+    <g class="landscape-mobile">
+      <path class="landscape-peaks far" d="M0,148 L0,124 L180,96 L320,126 L500,70 L680,130 L860,92 L1040,124 L1200,102 L1200,220 L0,220 Z"/>
+      <path class="landscape-peak-caps" d="M500,70 L574,118 L512,102 L476,128 L430,104 Z M860,92 L916,120 L868,110 L836,130 L798,112 Z"/>
+      <path class="landscape-hills back" d="M0,170 C150,142 292,154 420,170 C568,188 680,146 830,160 C986,174 1086,152 1200,140 L1200,220 L0,220 Z"/>
+      <path class="landscape-hills front" d="M0,196 C164,170 292,178 430,190 C582,204 706,170 860,182 C1010,194 1102,174 1200,160 L1200,220 L0,220 Z"/>
+    </g>
   </svg>
 </section>
 
