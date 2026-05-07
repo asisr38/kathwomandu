@@ -11,8 +11,7 @@ export function Hero() {
 
       <p className="tagline">Built to uplift</p>
       <p className="tagline-sub">
-        for woman <span className="dot" /> by woman <span className="dot" /> to
-        woman
+        for woman <span className="dot" /> by woman
       </p>
 
       <div className="hero-actions">

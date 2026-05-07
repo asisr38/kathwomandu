@@ -440,7 +440,6 @@ header.top .pulse::before {
   overflow: hidden;
   background-position: center;
   background-size: cover;
-  filter: saturate(0.85) contrast(1.05);
 }
 
 .visual .frame::after {
@@ -448,8 +447,8 @@ header.top .pulse::before {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(31, 22, 18, 0) 30%, rgba(31, 22, 18, 0.55) 100%),
-    linear-gradient(90deg, rgba(31, 22, 18, 0.35) 0%, rgba(31, 22, 18, 0) 50%);
+    linear-gradient(180deg, rgba(31, 22, 18, 0) 45%, rgba(31, 22, 18, 0.28) 100%),
+    linear-gradient(90deg, rgba(31, 22, 18, 0.18) 0%, rgba(31, 22, 18, 0) 48%);
 }
 
 .visual .quote {

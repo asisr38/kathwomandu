@@ -119,7 +119,6 @@ export default async function Image() {
               background: "#b51c2c",
             }}
           />
-          <span>to woman</span>
         </div>
       </div>
     ),
