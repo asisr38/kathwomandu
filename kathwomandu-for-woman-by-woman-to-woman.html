@@ -21,7 +21,7 @@
     --sindoor-deep: #8a1422;
     --ink: #1f1612;
     --ink-soft: #4b3a31;
-    --ink-quiet: #7c685c;
+    --ink-quiet: #6a5347;
     --rule: #d8caac;
   }
 
@@ -52,10 +52,25 @@
   }
 
   .narrow {
-    max-width: 720px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 0 2.5rem;
   }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    z-index: 9999;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
 
   /* ====================== TOP BAR ====================== */
   header.top {
@@ -149,21 +164,39 @@
     font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     color: var(--ink-soft);
     letter-spacing: 0.01em;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
   }
-  .tagline .dot {
+  .tagline-sub {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--ink-quiet);
+    margin-top: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .tagline-sub .dot {
     display: inline-block;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
     background: var(--sindoor);
     vertical-align: middle;
-    margin: 0 0.7rem 0.18em;
+    margin: 0 0.55rem 0.18em;
     opacity: 0.85;
   }
 
-  .hero .scroll-cue {
+  .hero-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
     margin-top: 2rem;
+  }
+  .hero-actions-divider {
+    color: var(--ink-quiet);
+    opacity: 0.6;
+  }
+  .hero .scroll-cue {
     font-size: 0.72rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
@@ -172,13 +205,16 @@
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
+    text-decoration: none;
   }
+  .hero .scroll-cue.alt { color: var(--terracotta-deep); }
   .hero .scroll-cue::after {
     content: "";
     width: 1px;
     height: 38px;
     background: linear-gradient(to bottom, var(--ochre), transparent);
   }
+  .hero .scroll-cue.alt::after { display: none; }
 
   /* Subtle mountain motif */
   .mountains {
@@ -186,10 +222,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 90px;
     pointer-events: none;
-    opacity: 0.18;
+    opacity: 0.85;
   }
+  .mountains path { fill: var(--ink); }
 
   /* ====================== MANIFESTO ====================== */
   .manifesto {
@@ -245,8 +282,9 @@
   }
   .manifesto p:last-child { margin-bottom: 0; }
   .manifesto p .accent {
-    color: var(--terracotta-deep);
+    color: var(--sindoor);
     font-style: italic;
+    font-weight: 500;
   }
 
   .signature {
@@ -462,6 +500,11 @@
     color: var(--ink);
     outline: none;
   }
+  form.signup input:focus,
+  form.signup button:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 2px;
+  }
   form.signup input::placeholder { color: var(--ink-quiet); }
   form.signup button {
     border: none;
@@ -492,14 +535,22 @@
   .capture .success {
     display: none;
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
     font-size: 1.15rem;
     color: var(--terracotta-deep);
+    text-align: center;
   }
   .capture .success.show { display: block; }
+  .success-sig {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--ink-quiet);
+    letter-spacing: 0.05em;
+  }
 
   /* ====================== FOOTER ====================== */
   footer.foot {
@@ -581,6 +632,8 @@
   }
 
   @media (max-width: 520px) {
+    .hero-actions { flex-direction: column; gap: 0.75rem; }
+    .hero-actions-divider { display: none; }
     .pillar-grid { grid-template-columns: 1fr; }
     .manifesto p { font-size: 1.05rem; }
   }
@@ -595,6 +648,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 <style>
 .ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
@@ -604,6 +660,7 @@
 </style>
 </head>
 <body>
+<a href="#manifesto" class="skip-link">Skip to content</a>
 
 <header class="top">
   <div class="mark">Kath<em>woman</em>du</div>
@@ -612,15 +669,20 @@
 
 <!-- ============= HERO ============= -->
 <section class="hero">
-  <span class="eyebrow">A new home is rising</span>
+  <span class="eyebrow">A new home for Nepali women</span>
 
   <h1 class="wordmark fade-up in">
     <span class="kath">Kath</span><span class="wo">woman</span><span class="mandu">du</span>
   </h1>
 
   <p class="tagline">Built to uplift</p>
+  <p class="tagline-sub">for woman <span class="dot"></span> by woman <span class="dot"></span> to woman</p>
 
-  <a class="scroll-cue" href="#manifesto">Read the manifesto</a>
+  <div class="hero-actions">
+    <a class="scroll-cue" href="#manifesto">Read the manifesto</a>
+    <span class="hero-actions-divider">·</span>
+    <a class="scroll-cue alt" href="#join">Or just leave your email</a>
+  </div>
 
   <svg class="mountains" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,100 L0,70 L120,30 L210,55 L320,15 L430,50 L540,20 L660,55 L780,25 L880,55 L990,18 L1100,48 L1200,25 L1200,100 Z" fill="#1f1612"/>
@@ -631,9 +693,9 @@
 <section class="manifesto" id="manifesto">
   <div class="narrow">
     <p class="label">The Manifesto</p>
-    <h2>
+    <h2 class="fade-up">
       From a city in the foothills of the world, a lineage of women
-      <em>continue to champion their tradition.</em>
+      <em>who continue to champion their tradition.</em>
     </h2>
 
     <p>
@@ -668,7 +730,7 @@
 <!-- ============= VISUAL MOMENT ============= -->
 <section class="visual">
   <div class="frame" role="img" aria-label="Sunrise over the Himalayan range in Nepal">
-    <div class="quote">
+    <div class="quote fade-up">
       <p class="q">"The mountain is tall because so many shoulders have held it up."</p>
       <p class="src">— A saying we are giving back its mothers</p>
     </div>
@@ -678,7 +740,7 @@
 <!-- ============= EMAIL CAPTURE ============= -->
 <section class="capture" id="join">
   <p class="label">Join the circle</p>
-  <h2>Be among the first to <em>hear what comes next</em>.</h2>
+  <h2 class="fade-up">Be among the first to <em>hear what comes next</em>.</h2>
   <p class="lede">
     No noise. No pitch. Just a quiet note, when there is something true to share.
   </p>
@@ -688,8 +750,8 @@
     <button type="submit">Stay close</button>
   </form>
 
-  <p class="privacy">We will never share your email. Unsubscribe any time.</p>
-  <p class="success" id="successMsg">Thank you. We'll write to you when the time is right.</p>
+  <p class="privacy">We will only write when there is something worth saying.</p>
+  <p class="success" id="successMsg">Thank you. We'll write to you when the time is right.<span class="success-sig">— काठमाडौं</span></p>
 </section>
 
 <!-- ============= FOOTER ============= -->

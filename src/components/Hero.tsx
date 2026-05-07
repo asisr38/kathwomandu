@@ -1,7 +1,7 @@
 export function Hero() {
   return (
     <section className="hero">
-      <span className="eyebrow">A new home emerging</span>
+      <span className="eyebrow">A new home for Nepali women</span>
 
       <h1 className="wordmark fade-up in">
         <span className="kath">Kath</span>
@@ -10,10 +10,20 @@ export function Hero() {
       </h1>
 
       <p className="tagline">Built to uplift</p>
+      <p className="tagline-sub">
+        for woman <span className="dot" /> by woman <span className="dot" /> to
+        woman
+      </p>
 
-      <a className="scroll-cue" href="#manifesto">
-        Read the manifesto
-      </a>
+      <div className="hero-actions">
+        <a className="scroll-cue" href="#manifesto">
+          Read the manifesto
+        </a>
+        <span className="hero-actions-divider">·</span>
+        <a className="scroll-cue alt" href="#join">
+          Or just leave your email
+        </a>
+      </div>
 
       <svg
         className="mountains"

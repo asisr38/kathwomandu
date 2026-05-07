@@ -3,9 +3,9 @@ export function Manifesto() {
     <section className="manifesto" id="manifesto">
       <div className="narrow">
         <p className="label">The Manifesto</p>
-        <h2>
+        <h2 className="fade-up">
           From a city in the foothills of the world, a lineage of women{" "}
-          <em>continue to champion their tradition.</em>
+          <em>who continue to champion their tradition.</em>
         </h2>
 
         <p>

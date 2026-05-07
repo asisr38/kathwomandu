@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { FadeUpObserver } from "@/components/FadeUpObserver";
 import { siteMeta } from "@/lib/site-content";
 
 const inter = Inter({
@@ -65,7 +66,13 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${fraunces.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <a href="#manifesto" className="skip-link">
+          Skip to content
+        </a>
+        {children}
+        <FadeUpObserver />
+      </body>
     </html>
   );
 }
