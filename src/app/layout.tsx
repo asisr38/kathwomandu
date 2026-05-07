@@ -20,10 +20,34 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteMeta.siteName,
+  "alternateName": siteMeta.domain,
+  "url": siteMeta.url,
+  "description": siteMeta.description,
+  "inLanguage": "en",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.url),
   title: siteMeta.title,
   description: siteMeta.description,
+  alternates: {
+    canonical: siteMeta.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -37,13 +61,13 @@ export const metadata: Metadata = {
     title: siteMeta.title,
     description: siteMeta.description,
     url: siteMeta.url,
-    siteName: "Kathwomandu",
+    siteName: siteMeta.siteName,
     images: [
       {
         url: `${siteMeta.url}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Kathwomandu",
+        alt: siteMeta.siteName,
       },
     ],
     type: "website",
@@ -67,6 +91,12 @@ export default function RootLayout({
       className={`${inter.variable} ${fraunces.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData),
+          }}
+        />
         <a href="#manifesto" className="skip-link">
           Skip to content
         </a>

@@ -1,4 +1,5 @@
 export const siteMeta = {
+  siteName: "Kathwomandu",
   title: "Kathwomandu — Built to uplift.",
   description:
     "Kathwomandu — a place in the making. Built to uplift. Supporting Nepali women, in spirit and in practice.",
