@@ -120,10 +120,15 @@
 
   /* ====================== HERO ====================== */
   .hero {
-    padding: 5rem 2.5rem 7rem;
+    min-height: calc(100vh - 4.75rem);
+    padding: clamp(4rem, 9vh, 7rem) 2.5rem clamp(9rem, 19vh, 12rem);
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero .eyebrow {
@@ -216,17 +221,33 @@
   }
   .hero .scroll-cue.alt::after { display: none; }
 
-  /* Subtle mountain motif */
-  .mountains {
+  .hero > :not(.hero-landscape) {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-landscape {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: clamp(140px, 25vh, 220px);
     pointer-events: none;
-    opacity: 0.85;
+    --landscape-far: #d9cfb9;
+    --landscape-cap: #efe6d4;
+    --landscape-near: #c4b596;
+    --landscape-hill-back: #a79576;
+    --landscape-hill-front: #826f56;
+    --landscape-tree: #5f4f3d;
   }
-  .mountains path { fill: var(--ink); }
+  .landscape-peaks.far { fill: var(--landscape-far); }
+  .landscape-peak-caps {
+    fill: var(--landscape-cap);
+    opacity: 0.72;
+  }
+  .landscape-peaks.near { fill: var(--landscape-near); }
+  .landscape-hills.back { fill: var(--landscape-hill-back); }
+  .landscape-hills.front { fill: var(--landscape-hill-front); }
+  .landscape-trees { fill: var(--landscape-tree); }
 
   /* ====================== MANIFESTO ====================== */
   .manifesto {
@@ -618,7 +639,20 @@
   @media (max-width: 880px) {
     header.top { padding: 1.25rem 1.5rem; }
     header.top .pulse { display: none; }
-    .hero { padding: 3rem 1.5rem 5rem; }
+    .hero { min-height: calc(100vh - 3.75rem); padding: 3rem 1.5rem 9rem; }
+    .hero .eyebrow {
+      max-width: min(100%, 360px);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      white-space: normal;
+    }
+    .wordmark { font-size: clamp(3.1rem, 16vw, 6.25rem); margin-bottom: 1.25rem; }
+    .tagline-sub { max-width: 22rem; line-height: 1.55; }
+    .hero-actions { margin-top: 1.55rem; }
+    .hero .scroll-cue { font-size: 0.68rem; letter-spacing: 0.24em; }
+    .hero .scroll-cue::after { height: 28px; }
+    .hero-landscape { height: clamp(120px, 20vh, 165px); }
     .pillar-grid { grid-template-columns: repeat(2, 1fr); gap: 2.25rem; }
     .container, .narrow { padding: 0 1.5rem; }
     .visual .quote { padding: 2rem 1.75rem; max-width: 100%; }
@@ -631,10 +665,43 @@
   }
 
   @media (max-width: 520px) {
-    .hero-actions { flex-direction: column; gap: 0.75rem; }
+    .hero { min-height: calc(100svh - 3.75rem); padding: 2.25rem 1rem 7.5rem; }
+    .hero .eyebrow {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.35rem;
+      padding: 0.42rem 0.85rem;
+    }
+    .wordmark {
+      font-size: clamp(2.85rem, 17vw, 4.7rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 1rem;
+    }
+    .tagline { font-size: 1.12rem; }
+    .tagline-sub { font-size: 0.92rem; margin-top: 0.35rem; }
+    .hero-actions { flex-direction: column; gap: 0.65rem; margin-top: 1.25rem; }
     .hero-actions-divider { display: none; }
+    .hero .scroll-cue { letter-spacing: 0.18em; }
+    .hero .scroll-cue::after { display: none; }
+    .hero-landscape { height: clamp(100px, 18vh, 135px); }
     .pillar-grid { grid-template-columns: 1fr; }
     .manifesto p { font-size: 1.05rem; }
+  }
+
+  @media (max-height: 680px) and (max-width: 520px) {
+    .hero {
+      justify-content: flex-start;
+      padding-top: 1.5rem;
+      padding-bottom: 6.5rem;
+    }
+    .hero .eyebrow { margin-bottom: 1rem; }
+    .wordmark {
+      font-size: clamp(2.5rem, 15vw, 3.8rem);
+      margin-bottom: 0.75rem;
+    }
+    .tagline { font-size: 1rem; }
+    .hero-actions { margin-top: 1rem; }
+    .hero-landscape { height: 96px; }
   }
 
   /* ====================== ANIMATIONS ====================== */
@@ -668,7 +735,7 @@
 
 <!-- ============= HERO ============= -->
 <section class="hero">
-  <span class="eyebrow">A new home for Nepali women</span>
+  <span class="eyebrow">A new home emerging</span>
 
   <h1 class="wordmark fade-up in">
     <span class="kath">Kath</span><span class="wo">woman</span><span class="mandu">du</span>
@@ -683,8 +750,13 @@
     <a class="scroll-cue alt" href="#join">Or just leave your email</a>
   </div>
 
-  <svg class="mountains" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,100 L0,70 L120,30 L210,55 L320,15 L430,50 L540,20 L660,55 L780,25 L880,55 L990,18 L1100,48 L1200,25 L1200,100 Z" fill="#1f1612"/>
+  <svg class="hero-landscape" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <path class="landscape-peaks far" d="M0,132 L0,116 L42,108 L82,88 L118,106 L158,72 L204,108 L248,82 L292,102 L338,54 L382,106 L426,80 L470,100 L520,66 L566,104 L610,50 L654,108 L704,82 L748,104 L804,36 L858,100 L908,70 L958,104 L1010,58 L1056,96 L1108,72 L1160,102 L1200,84 L1200,220 L0,220 Z"/>
+    <path class="landscape-peak-caps" d="M158,72 L188,100 L164,92 L148,108 L130,92 Z M338,54 L374,94 L344,82 L326,108 L302,86 Z M610,50 L646,96 L616,82 L600,110 L574,84 Z M804,36 L852,92 L816,78 L796,108 L762,82 Z M1010,58 L1048,92 L1016,82 L998,106 L974,84 Z"/>
+    <path class="landscape-peaks near" d="M0,152 C64,126 118,126 178,146 C238,166 284,126 356,136 C442,148 492,112 570,132 C650,152 714,118 798,132 C884,146 944,116 1030,130 C1098,140 1148,132 1200,118 L1200,220 L0,220 Z"/>
+    <path class="landscape-hills back" d="M0,172 C86,144 174,146 270,164 C376,184 466,136 584,154 C704,172 792,142 912,156 C1028,170 1114,150 1200,138 L1200,220 L0,220 Z"/>
+    <path class="landscape-hills front" d="M0,196 C92,166 188,170 286,188 C406,210 510,158 638,178 C764,198 842,164 960,178 C1058,190 1122,180 1200,158 L1200,220 L0,220 Z"/>
+    <path class="landscape-trees" d="M944,176 L964,140 L984,176 Z M972,178 L994,132 L1018,178 Z M1002,180 L1026,122 L1050,180 Z M1034,180 L1056,136 L1080,180 Z M1066,182 L1090,128 L1114,182 Z M1098,184 L1120,146 L1144,184 Z M1130,186 L1154,138 L1178,186 Z M1160,188 L1184,150 L1200,188 L1200,220 L920,220 L920,190 Z"/>
   </svg>
 </section>
 

@@ -137,10 +137,15 @@ header.top .pulse::before {
 }
 
 .hero {
-  padding: 5rem 2.5rem 7rem;
+  min-height: calc(100vh - 4.75rem);
+  padding: clamp(4rem, 9vh, 7rem) 2.5rem clamp(9rem, 19vh, 12rem);
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero .eyebrow {
@@ -254,18 +259,49 @@ header.top .pulse::before {
   display: none;
 }
 
-.mountains {
+.hero > :not(.hero-landscape) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-landscape {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: clamp(140px, 25vh, 220px);
   pointer-events: none;
-  opacity: 0.85;
+  --landscape-far: #d9cfb9;
+  --landscape-cap: #efe6d4;
+  --landscape-near: #c4b596;
+  --landscape-hill-back: #a79576;
+  --landscape-hill-front: #826f56;
+  --landscape-tree: #5f4f3d;
 }
 
-.mountains path {
-  fill: var(--ink);
+.landscape-peaks.far {
+  fill: var(--landscape-far);
+}
+
+.landscape-peak-caps {
+  fill: var(--landscape-cap);
+  opacity: 0.72;
+}
+
+.landscape-peaks.near {
+  fill: var(--landscape-near);
+}
+
+.landscape-hills.back {
+  fill: var(--landscape-hill-back);
+}
+
+.landscape-hills.front {
+  fill: var(--landscape-hill-front);
+}
+
+.landscape-trees {
+  fill: var(--landscape-tree);
 }
 
 .manifesto {
@@ -740,7 +776,43 @@ footer.foot .meta {
   }
 
   .hero {
-    padding: 3rem 1.5rem 5rem;
+    min-height: calc(100vh - 3.75rem);
+    padding: 3rem 1.5rem 9rem;
+  }
+
+  .hero .eyebrow {
+    max-width: min(100%, 360px);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.22em;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  .wordmark {
+    font-size: clamp(3.1rem, 16vw, 6.25rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .tagline-sub {
+    max-width: 22rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 1.55rem;
+  }
+
+  .hero .scroll-cue {
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+  }
+
+  .hero .scroll-cue::after {
+    height: 28px;
+  }
+
+  .hero-landscape {
+    height: clamp(120px, 20vh, 165px);
   }
 
   .pillar-grid {
@@ -786,13 +858,53 @@ footer.foot .meta {
 }
 
 @media (max-width: 520px) {
+  .hero {
+    min-height: calc(100svh - 3.75rem);
+    padding: 2.25rem 1rem 7.5rem;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 1.35rem;
+    padding: 0.42rem 0.85rem;
+  }
+
+  .wordmark {
+    font-size: clamp(2.85rem, 17vw, 4.7rem);
+    letter-spacing: -0.045em;
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1.12rem;
+  }
+
+  .tagline-sub {
+    font-size: 0.92rem;
+    margin-top: 0.35rem;
+  }
+
   .hero-actions {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    margin-top: 1.25rem;
   }
 
   .hero-actions-divider {
     display: none;
+  }
+
+  .hero .scroll-cue {
+    letter-spacing: 0.18em;
+  }
+
+  .hero .scroll-cue::after {
+    display: none;
+  }
+
+  .hero-landscape {
+    height: clamp(100px, 18vh, 135px);
   }
 
   .pillar-grid {
@@ -801,6 +913,35 @@ footer.foot .meta {
 
   .manifesto p {
     font-size: 1.05rem;
+  }
+}
+
+@media (max-height: 680px) and (max-width: 520px) {
+  .hero {
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 6.5rem;
+  }
+
+  .hero .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .wordmark {
+    font-size: clamp(2.5rem, 15vw, 3.8rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  .hero-landscape {
+    height: 96px;
   }
 }
 
