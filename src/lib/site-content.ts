@@ -42,7 +42,6 @@ export const pillars = [
 export const footerLinks = [
   { label: "Manifesto", href: "#manifesto" },
   { label: "Join", href: "#join" },
-  { label: "Contact", href: "mailto:hello@kathwomandu.com" },
 ] as const;
 
 export const visualQuote = {

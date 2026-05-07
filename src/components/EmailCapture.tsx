@@ -22,7 +22,8 @@ export function EmailCapture() {
     <section className="capture" id="join">
       <p className="label">Join the circle</p>
       <h2 className="fade-up">
-        Be among the first to <em>hear what comes next</em>.
+        Be among the first <br className="mobile-only" />
+        to <em>hear what comes next</em>.
       </h2>
       {state.status !== "success" ? (
         <form className="signup" action={formAction} noValidate>
