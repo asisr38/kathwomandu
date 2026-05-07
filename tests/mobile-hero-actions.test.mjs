@@ -43,7 +43,6 @@ test("hero actions have distinct primary and secondary treatments", () => {
 test("hero wordmark and tagline fit narrow mobile screens", () => {
   assert.match(hero, /<span>for woman<\/span>/);
   assert.match(hero, /<span>by woman<\/span>/);
-  assert.match(hero, /<span>to woman<\/span>/);
   assert.match(hero, /aria-hidden="true"/);
   assert.match(css, /font-size:\s*clamp\(2\.6rem,\s*13vw,\s*9\.5rem\)/);
   assert.match(css, /@media \(max-width:\s*420px\)/);

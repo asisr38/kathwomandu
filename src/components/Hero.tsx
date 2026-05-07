@@ -14,8 +14,6 @@ export function Hero() {
         <span>for woman</span>
         <span className="dot" aria-hidden="true" />
         <span>by woman</span>
-        <span className="dot" aria-hidden="true" />
-        <span>to woman</span>
       </p>
 
       <nav className="hero-actions" aria-label="Primary">
