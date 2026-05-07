@@ -21,7 +21,7 @@ export function EmailCapture() {
   return (
     <section className="capture" id="join">
       <p className="label">Join the circle</p>
-      <h2>
+      <h2 className="fade-up">
         Be among the first to <em>hear what comes next</em>.
       </h2>
       {state.status !== "success" ? (
@@ -41,9 +41,18 @@ export function EmailCapture() {
         </form>
       ) : null}
 
-      <p className="privacy">We will never share your email. Unsubscribe any time.</p>
+      <p className="privacy">
+        We will only write when there is something worth saying.
+      </p>
       <p className={`success ${state.status === "success" ? "show" : ""}`}>
-        {state.status === "success" ? state.message : ""}
+        {state.status === "success" ? (
+          <>
+            Thank you. We&apos;ll write to you when the time is right.
+            <span className="success-sig">— काठमाडौं</span>
+          </>
+        ) : (
+          ""
+        )}
       </p>
     </section>
   );

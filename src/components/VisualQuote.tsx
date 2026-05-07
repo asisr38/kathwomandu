@@ -9,7 +9,7 @@ export function VisualQuote() {
         aria-label={visualQuote.imageAlt}
         style={{ backgroundImage: `url(${visualQuote.imageSrc})` }}
       >
-        <div className="quote">
+        <div className="quote fade-up">
           <p className="q">{visualQuote.quote}</p>
           <p className="src">{visualQuote.source}</p>
         </div>
